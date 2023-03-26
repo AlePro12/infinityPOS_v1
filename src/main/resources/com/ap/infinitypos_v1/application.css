@@ -1,0 +1,45 @@
+.input {
+    -fx-height: 1.5rem;
+    -fx-display: block;
+    -fx-background-color: none;
+    -fx-padding: 0.125rem 0.125rem 0.0625rem;
+    -fx-font-size: 1rem;
+    -fx-line-height: 1.5;
+    -fx-width: 100%;
+    -fx-box-shadow: none;
+    -fx-text-fill: #fff;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: #fff;
+    -fx-border-style: solid;
+}
+
+.bg-blue {
+    -fx-background: #448ac9;
+}
+
+.button3 {
+    -fx-background-color: white;
+    -fx-text-fill: #448ac9;
+    -fx-border: none;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 9px;
+    -fx-text-decoration: none;
+}
+
+.button4 {
+    -fx-background-color: #eee;
+    -fx-text-fill: #448ac9;
+    -fx-border: none;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 9px;
+}
+
+.button4:hover {
+    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-border-style: solid;
+}
