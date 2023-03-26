@@ -43,3 +43,50 @@
     -fx-border-color: #fff;
     -fx-border-style: solid;
 }
+.searchButton {
+    -fx-background-color: #eee;
+    -fx-text-fill: #448ac9;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 0px 0px;
+}
+.searchButton:hover {
+    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-border-style: solid;
+}
+
+.paybutton {
+    -fx-background-color: #eee;
+    -fx-text-fill: #448ac9;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 5px;
+}
+.paybutton:hover {
+    -fx-border-width: 2px;
+    -fx-border-color: #fff;
+    -fx-border-style: solid;
+}
+.TableStyle {
+    -fx-background-color: #fff;
+    -fx-border-color: #fff;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-font-size: 12px;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-padding: 0px 0px;
+}
+.tablecolumn {
+    -fx-background-color: #448ac9;
+    -fx-border-color: #fff;
+    -fx-border-width: 0px;
+    -fx-border-style: solid;
+    -fx-font-size: 12px;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-padding: 0px 0px;
+}

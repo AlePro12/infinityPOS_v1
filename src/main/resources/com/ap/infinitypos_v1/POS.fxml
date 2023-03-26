@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.3161322645290581" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ap.infinitypos_v1.POS">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="311.0" stylesheets="@application.css">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="104.0" layoutX="19.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="113.0" layoutY="35.0" text="InfinityPOS" textFill="#448ac9">
+               <font>
+                  <Font name="System Bold" size="36.0" />
+               </font>
+            </Label>
+            <TextField fx:id="Codigo" layoutX="11.0" layoutY="131.0" onKeyPressed="#onCodigoKey" prefHeight="35.0" prefWidth="222.0" promptText="Codigo" />
+            <Line endX="293.0419616699219" endY="7.62939453125E-6" layoutX="27.0" layoutY="113.0" startX="-100.0" />
+            <ImageView fitHeight="35.0" fitWidth="44.0" focusTraversable="true" layoutX="238.0" layoutY="131.0" onMouseClicked="#onSearchButton" pickOnBounds="true" preserveRatio="true" styleClass="searchButton">
+               <image>
+                  <Image url="@images/Searchbutton.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="27.0" layoutY="483.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="253.0" styleClass="paybutton" text="Pagar" />
+            <Button layoutX="86.0" layoutY="271.0" mnemonicParsing="false" onMouseClicked="#BorrarTodo" prefHeight="60.0" prefWidth="120.0" styleClass="button4" text="Vaciar Cart" />
+            <Button layoutX="14.0" layoutY="198.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" styleClass="button4" text="Guardar" />
+            <Button layoutX="157.0" layoutY="199.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="120.0" styleClass="button4" text="Cargar" />
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="598.0" prefWidth="617.0" stylesheets="@application.css">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#034079" height="98.0" layoutX="-3.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="738.0" />
+            <Label fx:id="visor" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="424.0" layoutY="-1.0" prefHeight="90.0" prefWidth="235.0" text="0.00$" textAlignment="RIGHT" textFill="#f5f5f5" wrapText="true">
+               <font>
+                  <Font size="55.0" />
+               </font>
+            </Label>
+            <TableView fx:id="PosTable" layoutX="-1.0" layoutY="93.0" prefHeight="505.0" prefWidth="681.0" styleClass="TableStyle">
+              <columns>
+                  <TableColumn fx:id="Cantidad1" minWidth="0.0" prefWidth="102.45989990234375" styleClass="tablecolumn" text="Codigo" />
+                <TableColumn fx:id="Descrip" prefWidth="226.9737548828125" styleClass="tablecolumn" text="Descripcion" />
+                <TableColumn fx:id="Cantidad" minWidth="0.0" prefWidth="84.4146728515625" styleClass="tablecolumn" text="Cantidad" />
+                  <TableColumn fx:id="Precio" prefWidth="123.4146728515625" styleClass="tablecolumn" text="Precio" />
+                  <TableColumn fx:id="Total" minWidth="0.130340576171875" prefWidth="140.58526611328125" styleClass="tablecolumn" text="Total Renglon" />
+                  <TableColumn fx:id="Descrip1" prefWidth="573.7213134765625" styleClass="tablecolumn" text="Descripcion" />
+              </columns>
+            </TableView>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

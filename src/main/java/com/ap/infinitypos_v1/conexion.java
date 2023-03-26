@@ -10,6 +10,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
+import static com.ap.infinitypos_v1.HelloApplication.alertError;
+
 public class conexion {
     //mondoDB
     //construir la conexion
@@ -17,7 +19,7 @@ public class conexion {
     public  MongoDatabase DB = null;
     public conexion() {
         //mongodb+srv://admin:<password>@cluster0.4zaig6r.mongodb.net/?retryWrites=true&w=majority
-
+    try {
         String uri = "mongodb+srv://admin:LuRRzJzkBFksIezA@cluster0.4zaig6r.mongodb.net/?retryWrites=true&w=majority";
 
 
@@ -30,17 +32,21 @@ public class conexion {
                 .serverApi(serverApi)
                 .build();
         // Create a new client and connect to the server
-        this.mongoClient  = MongoClients.create(settings);
-            MongoDatabase database = mongoClient.getDatabase("Infinity");
-            try {
-                // Send a ping to confirm a successful connection
-                Bson command = new BsonDocument("ping", new BsonInt64(1));
-                Document commandResult = database.runCommand(command);
-                System.out.println("Pinged your deployment. You successfully connected to MongoDB!");
-            } catch (MongoException me) {
-                System.err.println(me);
-            }
+        this.mongoClient = MongoClients.create(settings);
+        MongoDatabase database = mongoClient.getDatabase("Infinity");
+        try {
+            // Send a ping to confirm a successful connection
+            Bson command = new BsonDocument("ping", new BsonInt64(1));
+            Document commandResult = database.runCommand(command);
+            System.out.println("Pinged your deployment. You successfully connected to MongoDB!");
+        } catch (MongoException me) {
+            System.err.println(me);
+        }
         DB = mongoClient.getDatabase("Infinity");
+    }catch (Exception e){
+        alertError("Error de conexion", "No se pudo conectar","No se pudo conectar con la base de datos el programa se cerrara");
+
+        }
     }
     public void GetLogin() {
         if (DB == null) {

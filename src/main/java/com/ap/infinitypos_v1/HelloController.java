@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 
@@ -20,12 +21,12 @@ public class HelloController {
     @FXML
     private TextField User;
     @FXML
-    private TextField Password;
+    private PasswordField Password;
     @FXML
     protected void OnClickLogin() throws IOException {
         boolean Logged = user.Login(User.getText(), Password.getText());
         if (Logged) {
-            welcomeText.setText("Bienvenido " + user.Nombre);
+            welcomeText.setText("¡Bienvenido!, " + user.Nombre);
             // to home
             HelloApplication.Home();
             //close login

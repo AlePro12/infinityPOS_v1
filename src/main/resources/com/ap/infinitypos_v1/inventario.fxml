@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="689.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ap.infinitypos_v1.InventarioController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dddddd" height="223.0" layoutX="24.0" layoutY="169.0" stroke="BLACK" strokeType="INSIDE" width="650.0" />
+      <Label layoutX="42.0" layoutY="24.0" prefHeight="34.0" prefWidth="537.0" text="Inventario - InfinityPOS">
+         <font>
+            <Font name="Montserrat Bold Italic" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="MainText" layoutX="43.0" layoutY="74.0" prefHeight="17.0" prefWidth="416.0" text="Usuario: " />
+      <Line endX="592.0" layoutX="106.0" layoutY="96.0" startX="-106.0" />
+      <TextField fx:id="Descrip" layoutX="43.0" layoutY="198.0" />
+      <TextField fx:id="Costo" layoutX="271.0" layoutY="198.0" promptText="0.00" />
+      <TextField fx:id="Stock" layoutX="499.0" layoutY="198.0" />
+      <Label layoutX="43.0" layoutY="181.0" text="Descripcion" />
+      <Label layoutX="271.0" layoutY="181.0" prefHeight="17.0" prefWidth="44.0" text="Costo" />
+      <Label layoutX="499.0" layoutY="182.0" prefHeight="17.0" prefWidth="75.0" text="Existencia" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9ccfff" height="56.0" layoutX="23.0" layoutY="103.0" stroke="BLACK" strokeType="INSIDE" width="650.0" />
+      <TextField fx:id="Codigo" layoutX="43.0" layoutY="124.0" onKeyPressed="#onCodigoKey" />
+      <Label layoutX="43.0" layoutY="109.0" text="Codigo" />
+      <Button layoutX="211.0" layoutY="124.0" mnemonicParsing="false" onMouseClicked="#onSearchButton" text="Buscar" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9ccfff" height="56.0" layoutX="23.0" layoutY="426.0" stroke="BLACK" strokeType="INSIDE" width="650.0" />
+      <Button layoutX="38.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#onSave" text="Guardar" textFill="#008a07" />
+      <Button layoutX="112.0" layoutY="442.0" mnemonicParsing="false" onMouseClicked="#onCancel" text="Cancelar" textFill="#b90000" />
+      <TextField fx:id="Util" layoutX="271.0" layoutY="255.0" onKeyPressed="#onUtilChange" promptText="\%" />
+      <Label layoutX="271.0" layoutY="238.0" prefHeight="17.0" prefWidth="44.0" text="Utilidad" />
+      <TextField fx:id="Precio" layoutX="271.0" layoutY="308.0" promptText="0.00" />
+      <Label layoutX="271.0" layoutY="291.0" prefHeight="17.0" prefWidth="83.0" text="Precio Final" />
+   </children>
+</Pane>
