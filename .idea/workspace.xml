@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="262b86ed-aba6-4495-bce3-6c9bafdebc82" name="Changes" comment="Interface">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/Home.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/application.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/images/Searchbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/images/Searchbutton.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/inventario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/inventario.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="262b86ed-aba6-4495-bce3-6c9bafdebc82" name="Changes" comment="Interface" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -65,7 +59,19 @@
       <option name="presentableId" value="Default" />
       <updated>1679169919257</updated>
     </task>
+    <task id="LOCAL-00001" summary="Interface">
+      <created>1679881809823</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679881809823</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interface" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
