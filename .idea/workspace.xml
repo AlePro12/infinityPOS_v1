@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="262b86ed-aba6-4495-bce3-6c9bafdebc82" name="Changes" comment="Create Home, Mongo Conn and Login">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/BuscarController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/CurrencyFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/InventarioController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/ItemInv.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/NumberFormatter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/Olvido.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/POS.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/PosItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/SliderWithTextField.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/POS.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/inventario.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/olvido.fxml" afterDir="false" />
+    <list default="true" id="262b86ed-aba6-4495-bce3-6c9bafdebc82" name="Changes" comment="Interface">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HelloApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/HomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/conexion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ap/infinitypos_v1/conexion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/Home.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/Home.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/images/Searchbutton.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/images/Searchbutton.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/inventario.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/ap/infinitypos_v1/inventario.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -62,19 +47,11 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/alejandrosanchez/IdeaProjects/infinityPOS_v1/src/main/java/com/ap/infinitypos_v1&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yalit/Desktop/YTorres/portfolio-app/app/components/sectionFive.js&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;
-    ]
   }
 }</component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.ap.infinitypos_v1" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.ap.infinitypos_v1" />
     </key>
@@ -88,19 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1679169919257</updated>
     </task>
-    <task id="LOCAL-00001" summary="Create Home, Mongo Conn and Login">
-      <created>1679250250075</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1679250250076</updated>
-    </task>
-    <option name="localTasksCounter" value="2" />
     <servers />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Create Home, Mongo Conn and Login" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create Home, Mongo Conn and Login" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,8 +8,23 @@
     -fx-width: 100%;
     -fx-box-shadow: none;
     -fx-text-fill: #fff;
-    -fx-border-width: 0 0 2px 0;
+    -fx-border-width: 0 0 1px 0;
     -fx-border-color: #fff;
+    -fx-border-style: solid;
+}
+
+.inputBlue {
+    -fx-height: 1.5rem;
+    -fx-display: block;
+    -fx-background-color: none;
+    -fx-padding: 0.125rem 0.125rem 0.0625rem;
+    -fx-font-size: 1rem;
+    -fx-line-height: 1.5;
+    -fx-width: 100%;
+    -fx-box-shadow: none;
+    -fx-text-fill: #000;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #448ac9;
     -fx-border-style: solid;
 }
 
@@ -28,6 +43,17 @@
     -fx-text-decoration: none;
 }
 
+.buttonBlue {
+    -fx-background-color: #448ac9;
+    -fx-text-fill: #fff;
+    -fx-border: none;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+    -fx-text-decoration: none;
+}
+
 .button4 {
     -fx-background-color: #eee;
     -fx-text-fill: #448ac9;
@@ -43,6 +69,29 @@
     -fx-border-color: #fff;
     -fx-border-style: solid;
 }
+
+.buttonGreen {
+    -fx-background-color: #008a07;
+    -fx-text-fill: #fff;
+    -fx-border: none;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+    -fx-text-decoration: none;
+}
+
+.buttonRed {
+    -fx-background-color: #b90000;
+    -fx-text-fill: #fff;
+    -fx-border: none;
+    -fx-font-weight: bold;
+    -fx-background-radius: 0;
+    -fx-font-size: 12px;
+    -fx-padding: 5px 15px;
+    -fx-text-decoration: none;
+}
+
 .searchButton {
     -fx-background-color: #eee;
     -fx-text-fill: #448ac9;
@@ -57,19 +106,6 @@
     -fx-border-style: solid;
 }
 
-.paybutton {
-    -fx-background-color: #eee;
-    -fx-text-fill: #448ac9;
-    -fx-font-weight: bold;
-    -fx-background-radius: 0;
-    -fx-font-size: 20px;
-    -fx-padding: 5px 5px;
-}
-.paybutton:hover {
-    -fx-border-width: 2px;
-    -fx-border-color: #fff;
-    -fx-border-style: solid;
-}
 .TableStyle {
     -fx-background-color: #fff;
     -fx-border-color: #fff;
@@ -81,7 +117,7 @@
     -fx-padding: 0px 0px;
 }
 .tablecolumn {
-    -fx-background-color: #448ac9;
+    -fx-background-color: #eee;
     -fx-border-color: #fff;
     -fx-border-width: 0px;
     -fx-border-style: solid;
@@ -90,3 +126,4 @@
     -fx-font-weight: bold;
     -fx-padding: 0px 0px;
 }
+
