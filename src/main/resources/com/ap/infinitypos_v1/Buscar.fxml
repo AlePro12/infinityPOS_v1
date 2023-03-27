@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="307.0" styleClass="bg-blue" stylesheets="@application.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" >
+   <children>
+      <Button layoutX="204.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#onClickSearch" prefHeight="26.0" prefWidth="88.0" styleClass="button3" text="Ir" />
+      <TextField fx:id="BuscarTerm" layoutX="14.0" layoutY="21.0" prefHeight="26.0" prefWidth="180.0" promptText="Buscar" styleClass="input" />
+      <TableView fx:id="tableSearch" layoutX="14.0" layoutY="63.0" prefHeight="311.0" prefWidth="279.0" />
+      <TableView fx:id="tableSearchusr" layoutX="14.0" layoutY="63.0" prefHeight="311.0" prefWidth="279.0" visible="false" />
+   </children>
+</Pane>
