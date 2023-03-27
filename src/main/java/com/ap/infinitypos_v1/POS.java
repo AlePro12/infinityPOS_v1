@@ -1,5 +1,7 @@
 package com.ap.infinitypos_v1;
 
+import com.github.anastaciocintra.escpos.EscPos;
+import com.github.anastaciocintra.output.PrinterOutputStream;
 import com.mongodb.client.MongoCollection;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -7,6 +9,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
 import org.bson.Document;
 
+import javax.print.PrintService;
 import java.io.IOException;
 
 import static com.ap.infinitypos_v1.HelloApplication.*;
@@ -16,6 +19,7 @@ public class POS {
 
     //array of products Positem
     public PosItem[] posItems;
+    public Cliente cliente = null;
     @FXML
     private TableView<PosItem> PosTable;
     @FXML
@@ -72,7 +76,7 @@ public void initialize() {
 }
     @FXML
     public void onSearchButton() throws IOException {
-        BuscarController Buscar = new BuscarController(null, this);
+        BuscarController Buscar = new BuscarController(null, this,null);
         Buscar.showStage();
     }
     public void setCodigoFromSearch(String codigo) {
@@ -85,6 +89,63 @@ public void initialize() {
         if (event.getCode().toString().equals("ENTER")) {
             System.out.println("Enter");
             this.AddCodigo();
+        }
+    }
+    @FXML
+    public void onPay() throws IOException {
+        if (cliente == null) {
+            System.out.println("Cliente: null");
+            DatosCliente datosCliente = new DatosCliente(this);
+            datosCliente.showStage();
+        } else {
+            Pay();
+        }
+    }
+    public void Pay() throws IOException {
+
+            System.out.println("Cliente: " + cliente.getNombre());
+            //print escpos
+            MongoCollection<Document> ConfigColl = conn.DB.getCollection("Config");
+            Document ConfigDoc = ConfigColl.find().first();
+            if (ConfigDoc == null) {
+                System.out.println("No exist Config");
+                alertError("ERROR", "No existe configuracion", "No existe configuracion");
+            }else{
+                Boolean PrintFac = ConfigDoc.getBoolean("PrintFac");
+                String Printer = ConfigDoc.getString("Printer");
+                if (PrintFac) {
+                    System.out.println("PrintFac: " + PrintFac);
+                    System.out.println("Printer: " + Printer);
+                    //print escpos
+                    PrintService printService = PrinterOutputStream.getPrintServiceByName(Printer);
+                    EscPos escpos;
+                    escpos = new EscPos(new PrinterOutputStream(printService));
+                    escpos.writeLF("Factura");
+                    escpos.writeLF("Cliente: " + cliente.getNombre());
+                    escpos.writeLF("RIF: " + cliente.getRif());
+                    escpos.writeLF("Direccion: " + cliente.getDireccion());
+//                    .writeLF("Botle of water                     $0.50")
+//                    .writeLF("----------------------------------------")
+                    escpos.writeLF("--------------------------------");
+                    for (int i = 0; i < posItems.length; i++) {
+                        // Item x 1 $0.50 = $0.50
+                        escpos.writeLF(posItems[i].getDescrip() + " x " + posItems[i].getCantidad() + " $" + posItems[i].getPrecio() );
+                        escpos.writeLF("$" + posItems[i].getTotal());
+                    }
+                    escpos.writeLF("--------------------------------");
+                    escpos.writeLF("Total: " + visor.getText());
+                    escpos.writeLF("Gracias por su compra");
+                    escpos.writeLF("InfinityPOS");
+                    escpos.feed(3);
+                    escpos.cut(EscPos.CutMode.FULL);
+                    escpos.close();
+
+
+                }//factura procesada
+                alertInfo("INFO", "Factura procesada", "Factura procesada");
+                BorrarTodo();
+
+
         }
     }
 
@@ -174,6 +235,9 @@ public void initialize() {
                 return;
             }
         }
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
 }

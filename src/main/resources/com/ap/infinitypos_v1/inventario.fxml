@@ -41,5 +41,6 @@
             <Font name="Calibri Bold" size="40.0" />
          </font>
       </Label>
+      <Button layoutX="38.0" layoutY="441.0" mnemonicParsing="false" onMouseClicked="#onDelete" styleClass="buttonRed" stylesheets="@application.css" text="BORRAR" textFill="#b90000" />
    </children>
 </Pane>

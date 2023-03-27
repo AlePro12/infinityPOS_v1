@@ -1,25 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.shape.Rectangle?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ap.infinitypos_v1.HomeController">
    <children>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="261.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="192.0" styleClass="button4" stylesheets="@application.css" text="Configuracion" />
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="261.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="202.0" styleClass="button4" stylesheets="@application.css" text="Facturacion" />
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="261.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="187.0" styleClass="button4" stylesheets="@application.css" text="Inventario" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="406.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#onClickConfig" prefHeight="108.0" prefWidth="192.0" styleClass="button4" stylesheets="@application.css" text="Configuracion" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="197.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#onClickPOS" prefHeight="108.0" prefWidth="202.0" styleClass="button4" stylesheets="@application.css" text="Facturacion" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="261.0" mnemonicParsing="false" onMouseClicked="#onClickInv" prefHeight="108.0" prefWidth="187.0" styleClass="button4" stylesheets="@application.css" text="Inventario" />
       <Label layoutX="32.0" layoutY="19.0" prefHeight="34.0" prefWidth="537.0" text="InfinityPOS" textFill="#448ac9">
          <font>
             <Font name="Calibri Bold" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="MainText" layoutX="32.0" layoutY="154.0" prefHeight="46.0" prefWidth="186.0" text="Un simple inventario hecho para ti..." wrapText="true">
+      <Label fx:id="MainText2" layoutX="32.0" layoutY="154.0" prefHeight="46.0" prefWidth="186.0" text="Un simple inventario hecho para ti..." wrapText="true">
          <font>
             <Font name="Calibri" size="15.0" />
          </font></Label>
@@ -31,22 +28,22 @@
             <Image url="@images/logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="MainText1" layoutX="358.0" layoutY="217.0" prefHeight="35.0" prefWidth="135.0" text="¡Bienvenido! usuario:" wrapText="true">
+      <Label fx:id="MainText" layoutX="358.0" layoutY="217.0" prefHeight="35.0" prefWidth="135.0" text="¡Bienvenido! usuario:" wrapText="true">
          <font>
             <Font name="Calibri" size="15.0" />
          </font>
       </Label>
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="419.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="419.0" layoutY="298.0" onMouseClicked="#onClickConfig" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/configuracion.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="229.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="229.0" layoutY="297.0" onMouseClicked="#onClickPOS" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/facturacion.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="32.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="32.0" layoutY="297.0" onMouseClicked="#onClickInv" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/inventario.png" />
          </image>

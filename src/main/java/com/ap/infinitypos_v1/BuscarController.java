@@ -25,8 +25,9 @@ public class BuscarController {
     private Stage thisStage;
     private final InventarioController inventarioController;
     private final POS pos;
+    private final Config config;
 
-    public BuscarController(InventarioController inventarioController, POS pos) {
+    public BuscarController(InventarioController inventarioController, POS pos,Config config) {
         if (inventarioController != null) {
             this.inventarioController = inventarioController;
         }else{
@@ -36,6 +37,11 @@ public class BuscarController {
             this.pos = pos;
         }else{
             this.pos = null;
+        }
+        if (config != null) {
+            this.config = config;
+        }else{
+            this.config = null;
         }
 
         // Create the new stage
@@ -71,12 +77,18 @@ public class BuscarController {
     private TextField BuscarTerm;
     @FXML
     private TableView<ItemInv> tableSearch;
+    @FXML
+    private TableView<Usuario> tableSearchusr;
 
     @FXML
     public conexion condb;
 
     @FXML
     public void onClickSearch() {
+        if (config != null){
+            this.SearchUsr();
+            return;
+        }
         this.condb = conn;
         //clear table
         tableSearch.getItems().clear();
@@ -137,6 +149,67 @@ public class BuscarController {
                 if (this.pos != null) {
                     this.pos.setCodigoFromSearch(tableSearch.getSelectionModel().getSelectedItem().getCodigo());
                 }
+                //close this window
+                thisStage.close();
+            }
+        });
+
+
+        System.out.println("Buscar");
+    }
+    public void SearchUsr(){
+        //set visible table
+        tableSearchusr.setVisible(true);
+        this.condb = conn;
+        //clear table
+        tableSearchusr.getItems().clear();
+        //clear columns
+        tableSearchusr.getColumns().clear();
+        //Create Tableview  Descrip, Precio and Stock for ItemInv
+        TableColumn<Usuario, String> colUsuario = new TableColumn<Usuario, String>("User");
+        colUsuario.setCellValueFactory(new PropertyValueFactory<Usuario, String>("User"));
+        TableColumn<Usuario, String> colNombre = new TableColumn<Usuario, String>("Nombre");
+        colNombre.setCellValueFactory(new PropertyValueFactory<Usuario, String>("Nombre"));
+
+        tableSearchusr.getColumns().addAll(colUsuario, colNombre);
+
+
+        MongoCollection<Document> collection = conn.DB.getCollection("Login");
+        MongoCursor<Document> cursor = collection.find(
+                new Document("User", new Document("$regex", BuscarTerm.getText()))
+        ).iterator();
+        try {
+            while (cursor.hasNext()) {
+                Document InvDoc = cursor.next();
+                //add to table
+                Usuario usr = new Usuario(conn);
+                usr.setUsr(
+                        InvDoc.getString("User"),
+                        InvDoc.getString("Password"),
+                        InvDoc.getString("Nombre"),
+                        InvDoc.getString("Telefono"),
+                        InvDoc.getBoolean("AccessInv"),
+                        InvDoc.getBoolean("AccessPos"),
+                        InvDoc.getBoolean("AccessConfig")
+                        );
+                tableSearchusr.getItems().add(usr);
+                System.out.println(InvDoc.toJson());
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
+        finally {
+            cursor.close();
+        }
+        //Show Table
+
+        //on click table
+        tableSearchusr.setOnMouseClicked(event -> {
+            if (event.getClickCount() == 2) {
+                //Open Form
+                //alertInfo("Open Form", "Open Form", "Open Form codp:" + tableSearch.getSelectionModel().getSelectedItem().getCodigo());
+
+                this.config.setUsrFromSearch(tableSearchusr.getSelectionModel().getSelectedItem().getUser());
                 //close this window
                 thisStage.close();
             }

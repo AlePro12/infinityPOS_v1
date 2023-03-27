@@ -7,15 +7,23 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="235.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="364.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ap.infinitypos_v1.Olvido">
    <children>
-      <TextField layoutX="43.0" layoutY="111.0" prefHeight="26.0" prefWidth="169.0" promptText="0412" styleClass="inputBlue" stylesheets="@application.css" />
-      <Label layoutX="76.0" layoutY="87.0" text="Ingrese su telefono" />
+      <TextField fx:id="Telefono" layoutX="43.0" layoutY="97.0" prefHeight="26.0" prefWidth="169.0" promptText="58412XXXXXXX" styleClass="inputBlue" stylesheets="@application.css" />
+      <Label layoutX="76.0" layoutY="79.0" text="Ingrese su telefono" />
       <ImageView fitHeight="47.0" fitWidth="37.0" layoutX="109.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/logo.png" />
          </image>
       </ImageView>
-      <Button layoutX="89.0" layoutY="164.0" mnemonicParsing="false" styleClass="buttonBlue" stylesheets="@application.css" text="Ingresar" />
+      <Button fx:id="VerificarButton" layoutX="89.0" layoutY="194.0" mnemonicParsing="false" onMouseClicked="#OnClickEnviar" styleClass="buttonBlue" stylesheets="@application.css" text="Verificar" />
+      <TextField fx:id="User" layoutX="44.0" layoutY="149.0" prefHeight="26.0" prefWidth="169.0" promptText="Usuario" styleClass="inputBlue" stylesheets="@application.css" />
+      <Label layoutX="77.0" layoutY="131.0" text="Ingrese su usuario" />
+      <TextField fx:id="Verify" layoutX="44.0" layoutY="193.0" prefHeight="26.0" prefWidth="169.0" promptText="Codigo de verificacion" styleClass="inputBlue" stylesheets="@application.css" visible="false" />
+      <Button fx:id="Recuperar" layoutX="85.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#OnClickVerificar" styleClass="buttonBlue" stylesheets="@application.css" text="Recuperar" visible="false" />
+      <Label fx:id="IngrUsr" layoutX="78.0" layoutY="179.0" text="Ingrese su codigo " visible="false" />
+      <TextField fx:id="Clave" accessibleRole="PASSWORD_FIELD" layoutX="43.0" layoutY="267.0" prefHeight="26.0" prefWidth="169.0" promptText="Clave" styleClass="inputBlue" stylesheets="@application.css" visible="false" />
+      <Label fx:id="IngrNvPass" layoutX="66.0" layoutY="249.0" text="Ingrese su nueva clave" visible="false" />
+      <Button fx:id="CambiarClave" layoutX="90.0" layoutY="308.0" mnemonicParsing="false" onMouseClicked="#onChangepass" styleClass="buttonBlue" stylesheets="@application.css" text="Cambiar" visible="false" />
    </children>
 </Pane>

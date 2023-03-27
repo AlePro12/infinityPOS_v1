@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ap.infinitypos_v1.Config">
+    <Label layoutX="32.0" layoutY="19.0" prefHeight="34.0" prefWidth="537.0" text="Configuraciones" textFill="#448ac9">
+        <font>
+            <Font name="Calibri Bold" size="40.0" />
+        </font>
+    </Label>
+    <Line endX="504.0" layoutX="96.0" layoutY="86.0" startX="-100.0" stroke="#d0d0d0" />
+    <ImageView fitHeight="53.0" fitWidth="65.0" layoutX="527.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@images/logo.png" />
+        </image>
+    </ImageView>
+   <TabPane layoutX="3.0" layoutY="89.0" prefHeight="305.0" prefWidth="590.0" stylesheets="@application.css" tabClosingPolicy="UNAVAILABLE">
+     <tabs>
+       <Tab text="General">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <CheckBox fx:id="PrintFac" layoutX="16.0" layoutY="19.0" mnemonicParsing="false" text="Imprimir Facturas" />
+                     <ChoiceBox fx:id="Printer" layoutX="15.0" layoutY="64.0" prefWidth="150.0" />
+                     <Label layoutX="16.0" layoutY="46.0" text="Impresora ESCPOS" />
+                     <Button layoutX="14.0" layoutY="98.0" mnemonicParsing="false" onMouseClicked="#TestPrint" text="Probar Impresora" />
+                     <Button layoutX="20.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#SaveConfig" text="Guardar" />
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+       <Tab text="Usuarios">
+         <content>
+           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b9ddff" height="53.0" layoutX="14.0" layoutY="6.0" stroke="BLACK" strokeType="INSIDE" width="562.0" />
+                     <TextField fx:id="User" layoutX="21.0" layoutY="24.0" onKeyPressed="#onUserKey" />
+                     <Label layoutX="21.0" layoutY="8.0" prefHeight="17.0" prefWidth="51.0" text="Usuario" />
+                     <ImageView fitHeight="29.0" fitWidth="28.0" focusTraversable="true" layoutX="183.0" layoutY="23.0" onMouseClicked="#onSearchButton" pickOnBounds="true" preserveRatio="true" styleClass="searchButton">
+                        <image>
+                           <Image url="@images/Searchbutton.png" />
+                        </image>
+                     </ImageView>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#c6c6c6" height="155.0" layoutX="15.0" layoutY="64.0" stroke="BLACK" strokeType="INSIDE" width="560.0" />
+                     <TextField fx:id="Nombre" layoutX="31.0" layoutY="89.0" />
+                     <Label layoutX="31.0" layoutY="73.0" prefHeight="17.0" prefWidth="51.0" text="Nombre" />
+                     <PasswordField fx:id="Password" layoutX="31.0" layoutY="137.0" />
+                     <Label layoutX="31.0" layoutY="121.0" prefHeight="17.0" prefWidth="51.0" text="Clave" />
+                     <TextField fx:id="Telefono" layoutX="31.0" layoutY="185.0" />
+                     <Label layoutX="31.0" layoutY="169.0" prefHeight="17.0" prefWidth="51.0" text="Telefono" />
+                     <CheckBox fx:id="AccessInv" layoutX="351.0" layoutY="94.0" mnemonicParsing="false" text="Acceso al Inventario" />
+                     <CheckBox fx:id="AccessFac" layoutX="350.0" layoutY="121.0" mnemonicParsing="false" text="Acceso a la facturacion" />
+                     <CheckBox fx:id="AccessConfig" layoutX="351.0" layoutY="148.0" mnemonicParsing="false" text="Acceso a la configuracion" />
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9ccfff" height="50.0" layoutX="15.0" layoutY="222.0" stroke="BLACK" strokeType="INSIDE" width="559.0" />
+                     <Button layoutX="22.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#onSave" text="Guardar" textFill="#008a07" />
+                     <Button layoutX="89.0" layoutY="234.0" mnemonicParsing="false" onMouseClicked="#onCancel" text="Cancelar" textFill="#b90000" />
+                     <Label layoutX="197.0" layoutY="194.0" text="Importante! El numero debe empezar por 58414 o 58414, etc" textFill="#800000" />
+                  </children></AnchorPane>
+         </content>
+       </Tab>
+         <Tab text="Acerca De">
+             <content>
+                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                  <children>
+                     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f2f2f2" height="252.0" layoutX="14.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="562.0" />
+                     <ImageView fitHeight="131.0" fitWidth="145.0" layoutX="27.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                           <Image url="@images/logo.png" />
+                        </image>
+                     </ImageView>
+                     <Label layoutX="170.0" layoutY="50.0" prefHeight="83.0" prefWidth="311.0" text="InfinityPOS" textFill="#448ac9">
+                        <font>
+                           <Font name="System Bold" size="48.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="48.0" layoutY="169.0" text="(c)2023 - Alejandro Sanchez  - Yalith Torres">
+                        <font>
+                           <Font name="Trebuchet MS" size="13.0" />
+                        </font>
+                     </Label>
+                     <Label layoutX="48.0" layoutY="187.0" text="Programacion II N513 URBE" />
+                     <Label layoutX="49.0" layoutY="204.0" text="Alejandro Sanchez CI 29752300" />
+                     <Label layoutX="49.0" layoutY="222.0" text="Yalith Torres CI 30206361" />
+                     <Hyperlink layoutX="46.0" layoutY="236.0" text="https://github.com/AlePro12/infinityPOS_v1" />
+                  </children></AnchorPane>
+             </content>
+         </Tab>
+
+     </tabs>
+   </TabPane>
+</AnchorPane>

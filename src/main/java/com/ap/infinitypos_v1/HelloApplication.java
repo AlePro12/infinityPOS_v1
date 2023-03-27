@@ -23,7 +23,7 @@ public class HelloApplication extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
 
-        Scene scene = new Scene(fxmlLoader.load(), 350, 270);
+        Scene scene = new Scene(fxmlLoader.load(), 254, 287);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
         conn = new conexion();
         user = new Usuario(conn);
@@ -46,6 +46,23 @@ public class HelloApplication extends Application {
     }
 
     public static void Inventario() throws IOException {
+        if (user == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se ha iniciado sesión");
+            alert.setContentText("Inicie sesión para continuar");
+            alert.showAndWait();
+            return;
+        }
+        if (user.AccessInv == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No tiene permisos para acceder a esta sección");
+            alert.setContentText("Contacte al administrador");
+            alert.showAndWait();
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("inventario.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 689, 496);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
@@ -57,6 +74,24 @@ public class HelloApplication extends Application {
     }
 
     public static void POS() throws IOException {
+        //check if user is logged
+        if (user == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se ha iniciado sesión");
+            alert.setContentText("Inicie sesión para continuar");
+            alert.showAndWait();
+            return;
+        }
+        if (user.AccessPos == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No tiene permisos para acceder a esta sección");
+            alert.setContentText("Contacte al administrador");
+            alert.showAndWait();
+            return;
+        }
+
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("POS.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1000, 600);
         MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
@@ -66,11 +101,48 @@ public class HelloApplication extends Application {
         stage.setScene(scene);
         stage.show();
     }
+    public static void Config() throws IOException {
+        if (user == null) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No se ha iniciado sesión");
+            alert.setContentText("Inicie sesión para continuar");
+            alert.showAndWait();
+            return;
+        }
+        if (user.AccessConfig == false) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No tiene permisos para acceder a esta sección");
+            alert.setContentText("Contacte al administrador");
+            alert.showAndWait();
+            return;
+        }
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Config.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = new Stage();
+        stage.setTitle("Configuracion");
+        stage.setScene(scene);
+        stage.show();
+    }
+    public static void Olvido() throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Olvido.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), 256, 364);
+        MFXThemeManager.addOn(scene, Themes.DEFAULT, Themes.LEGACY);
+        scene.setFill(Color.TRANSPARENT);
+        Stage stage = new Stage();
+        stage.setTitle("Olvido de contraseña");
+        stage.setScene(scene);
+        stage.show();
+    }
 
     //https://www.jetbrains.com/help/idea/opening-fxml-files-in-javafx-scene-builder.html
     public static void main(String[] args) {
         launch();
-
+//http://192.168.32.110:2987/
     }
 
     //Conexion a la base de datos

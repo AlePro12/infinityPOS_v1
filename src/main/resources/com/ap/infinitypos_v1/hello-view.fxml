@@ -19,6 +19,7 @@
    </ImageView>
    <TextField id="Usr" fx:id="User" promptText="Usuario" styleClass="input" stylesheets="@application.css" />
    <TextField id="Pass" fx:id="Password" promptText="Clave" styleClass="input" stylesheets="@application.css" />
+   <Label onMouseClicked="#OnOlvido" text="Olvido la Clave?" textFill="#fbfbff" />
    <Button mnemonicParsing="false" onMouseClicked="#OnClickLogin" prefHeight="25.0" prefWidth="222.0" styleClass="button3" stylesheets="@application.css" text="Entrar" />
 
     <Label fx:id="welcomeText" />

@@ -36,4 +36,8 @@ public class HelloController {
             welcomeText.setText("Usuario o contraseña incorrectos");
         }
     }
+    @FXML
+    public void OnOlvido() throws IOException {
+        HelloApplication.Olvido();
+    }
 }

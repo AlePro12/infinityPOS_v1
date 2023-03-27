@@ -48,6 +48,11 @@ public class HomeController  implements Initializable {
     public void onClickPOS() throws IOException {
         HelloApplication.POS();
     }
+    @FXML
+    public void onClickConfig() throws IOException {
+        HelloApplication.Config();
+    }
+
     //alert
 
     public void reloj() {

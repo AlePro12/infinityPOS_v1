@@ -7,6 +7,7 @@ module com.ap.infinitypos_v1 {
     requires org.mongodb.bson;
     requires org.mongodb.driver.core;
     requires MaterialFX;
+    requires escpos.coffee;
 
     opens com.ap.infinitypos_v1 to javafx.fxml;
     exports com.ap.infinitypos_v1;

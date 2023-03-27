@@ -8,6 +8,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
@@ -19,8 +21,8 @@ import javax.swing.text.NumberFormatter;
 import java.io.IOException;
 import java.util.function.UnaryOperator;
 
-import static com.ap.infinitypos_v1.HelloApplication.alertInfo;
-import static com.ap.infinitypos_v1.HelloApplication.conn;
+import static com.ap.infinitypos_v1.HelloApplication.*;
+
 public class InventarioController {
     @FXML
     private TextField Codigo;
@@ -40,23 +42,52 @@ public class InventarioController {
     @FXML
     public void initialize() {
         UnaryOperator<TextFormatter.Change> filter = change -> {
-            String text = change.getText();
-
-            if (text.matches("[0-9]*")) {
+            String newText = change.getControlNewText();
+            // only allow digits and  dots
+            System.out.println(newText);
+            if (newText.matches("[0-9]*")) {
+                return change;
+            }
+            if (newText.matches("[0-9]*[.][0-9]*")) {
                 return change;
             }
 
+            System.out.println("no match" + newText);
+            return null;
+        };
+
+        UnaryOperator<TextFormatter.Change> UtilUn = change -> {
+            String newText = change.getControlNewText();
+            // Calc Precio total from Util
+            if (newText.matches("[0-9]*")) {
+                if (newText.length() > 0) {
+                    double util = Double.parseDouble(newText);
+                    double costo = Double.parseDouble(Costo.getText());
+                    double precio = costo + (costo * util / 100);
+                    Precio.setText(String.valueOf(precio));
+                }
+                return change;
+            }
+            if (newText.matches("[0-9]*[.][0-9]*")) {
+                if (newText.length() > 0) {
+                    double util = Double.parseDouble(newText);
+                    double costo = Double.parseDouble(Costo.getText());
+                    double precio = costo + (costo * util / 100);
+                    Precio.setText(String.valueOf(precio));
+                }
+                return change;
+            }
             return null;
         };
         TextFormatter<String> textFormatter = new TextFormatter<>(filter);
         TextFormatter<String> textFormatter2 = new TextFormatter<>(filter);
-        TextFormatter<String> textFormatter3 = new TextFormatter<>(filter);
+        //TextFormatter<String> textFormatter3 = new TextFormatter<>(filter);
         TextFormatter<String> textFormatter4 = new TextFormatter<>(filter);
-        //TextFormatter<String> textFormatter5 = new TextFormatter<>(filter);
+        TextFormatter<String> textFormatter5 = new TextFormatter<>(UtilUn);
 
         Costo.setTextFormatter(textFormatter);
         Precio.setTextFormatter(textFormatter2);
-        Util.setTextFormatter(textFormatter3);
+        Util.setTextFormatter(textFormatter5);
         Stock.setTextFormatter(textFormatter4);
         ReleaseForm();
     }
@@ -94,6 +125,7 @@ public class InventarioController {
             //System.out.println(LoginDoc.toJson());
             Descrip.setText(Item.getDescrip());
             Costo.setText(Item.getCostoStr());
+            System.out.println(Item.getCostoStr());
             Precio.setText(Item.getPrecioStr());
             Util.setText(Item.getUtilStr());
             Stock.setText(Item.getStockStr());
@@ -106,11 +138,6 @@ public class InventarioController {
     public void onUtilChange(){
         //if Util change
         System.out.println("Util");
-        //calc Precio
-        double costo = Double.parseDouble(Costo.getText());
-        double util = Double.parseDouble(Util.getText());
-        double precio = costo + (costo * util / 100);
-        Precio.setText(String.valueOf(precio));
     }
     //on key typed handler
 
@@ -126,6 +153,7 @@ public class InventarioController {
         Item.setUtilStr(Util.getText());
         Item.setStockStr(Stock.getText());
         if (exist) {
+            System.out.println("Update");
             //update
             Document doc = new Document("Codigo", Item.Codigo)
                     .append("Descrip", Item.Descrip)
@@ -135,6 +163,7 @@ public class InventarioController {
                     .append("Stock", Item.Stock);
             collection.updateOne(new Document("Codigo", Item.Codigo), new Document("$set", doc));
         } else {
+            System.out.println("Insert");
             //insert
             Document doc = new Document("Codigo", Item.Codigo)
                     .append("Descrip", Item.Descrip)
@@ -150,6 +179,20 @@ public class InventarioController {
         System.out.println("Cancel");
         ReleaseForm();
     }
+    @FXML
+    public void onDelete() {
+        Alert dec = decisionDialog("Borrar", "Borrar", "Esta seguro que desea borrar el producto?", "Borrar", "Cancelar");
+        dec.showAndWait();
+        if (dec.getResult() == ButtonType.CANCEL) {
+            return;
+        }
+        System.out.println("Delete");
+        //delete in db mongo
+        this.condb = conn;
+        MongoCollection<Document> collection = conn.DB.getCollection("Inventario");
+        collection.deleteOne(new Document("Codigo", Codigo.getText()));
+        ReleaseForm();
+    }
     public void ReleaseForm() {
         ClearForm();
         exist = false;
@@ -163,10 +206,10 @@ public class InventarioController {
     public void ClearForm() {
         Codigo.setText("");
         Descrip.setText("");
-        Costo.setText("");
-        Precio.setText("");
-        Util.setText("");
-        Stock.setText("");
+        Costo.setText("0");
+        Precio.setText("0");
+        Util.setText("0");
+        Stock.setText("0");
 
     }
     public void OpenForm() {
@@ -180,7 +223,7 @@ public class InventarioController {
     }
     @FXML
     public void onSearchButton() throws IOException {
-        BuscarController Buscar = new BuscarController(this,null);
+        BuscarController Buscar = new BuscarController(this,null,null);
         Buscar.showStage();
     }
 }

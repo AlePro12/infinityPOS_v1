@@ -29,7 +29,7 @@
                   <Image url="@images/Searchbutton.png" />
                </image>
             </ImageView>
-            <Button layoutX="46.0" layoutY="482.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="222.0" styleClass="button4" text="Pagar" />
+            <Button layoutX="46.0" layoutY="482.0" mnemonicParsing="false" onMouseClicked="#onPay" prefHeight="60.0" prefWidth="222.0" styleClass="button4" text="Pagar" />
             <Button layoutX="46.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#BorrarTodo" prefHeight="60.0" prefWidth="222.0" styleClass="button4" text="Vaciar Cart" />
             <Button layoutX="46.0" layoutY="239.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="222.0" styleClass="button4" text="Guardar" />
             <Button layoutX="46.0" layoutY="319.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="222.0" styleClass="button4" text="Cargar" />
